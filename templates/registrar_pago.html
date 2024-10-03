@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="login-container">
+        <h1>Registrar Pago</h1>
+        <form method="POST" action="/registrar_pago">
+            <label for="factura_id">Factura ID:</label>
+            <input type="text" id="factura_id" name="factura_id" required>
+            
+            <label for="monto">Monto:</label>
+            <input type="text" id="monto" name="monto" required>
+            
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+            
+            <label for="metodo_pago">Método de Pago:</label>
+            <input type="text" id="metodo_pago" name="metodo_pago" required>
+
+            <button type="submit" class="menu-button">Registrar</button>
+        </form>
+        <a href="/" class="menu-button">Volver al Menú Principal</a>
+    </div>
+{% endblock %}

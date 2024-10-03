@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="login-container">
+        <h1>Agregar Factura</h1>
+        <form method="POST" action="/agregar_factura" enctype="multipart/form-data">
+            <label for="proveedor_id">Proveedor ID:</label>
+            <input type="text" id="proveedor_id" name="proveedor_id" required>
+            
+            <label for="monto">Monto:</label>
+            <input type="text" id="monto" name="monto" required>
+            
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+            
+            <label for="fecha_vencimiento">Fecha de Vencimiento:</label>
+            <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" required>
+            
+            <label for="condiciones_pago">Condiciones de Pago:</label>
+            <input type="text" id="condiciones_pago" name="condiciones_pago" required>
+            
+            <label for="archivo">Adjuntar Archivo:</label>
+            <input type="file" id="archivo" name="archivo">
+
+            <button type="submit" class="menu-button">Agregar</button>
+        </form>
+        <a href="/" class="menu-button">Volver al Menú Principal</a>
+    </div>
+{% endblock %}

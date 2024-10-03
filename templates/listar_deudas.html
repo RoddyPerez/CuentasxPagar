@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="login-container">
+        <h1>Listar Deudas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Monto</th>
+                    <th>Fecha de Vencimiento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deuda in deudas %}
+                <tr>
+                    <td>{{ deuda[1] }}</td>
+                    <td>{{ deuda[2] }}</td>
+                    <td>{{ deuda[3] }}</td>
+                    <td>
+                        <a href="/editar_deuda/{{ deuda[0] }}" class="menu-button">Editar</a>
+                        <form action="/eliminar_deuda/{{ deuda[0] }}" method="POST">
+                            <button type="submit" class="menu-button" onclick="return confirm('¿Estás seguro de que deseas eliminar esta deuda?');">Eliminar</button>                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="menu-button">Volver al Menú Principal</a>
+    </div>
+{% endblock %}

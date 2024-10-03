@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="login-container">
+        <h1>Listar Facturas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Proveedor</th>
+                    <th>Monto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for factura in facturas %}
+                <tr>
+                    <td>{{ factura[0] }}</td>  <!-- ID -->
+                    <td>{{ factura[1] }}</td>  <!-- Proveedor -->
+                    <td>{{ factura[2] }}</td>  <!-- Monto -->
+                    <td>
+                        <a href="/editar_factura/{{ factura[0] }}" class="menu-button">Editar</a>
+                        
+                        <form action="/eliminar_factura/{{ factura[0] }}" method="POST">
+                            <button type="submit" class="menu-button" onclick="return confirm('¿Estás seguro de que deseas eliminar esta factura?');">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="menu-button">Volver al Menú Principal</a>
+    </div>
+{% endblock %}
